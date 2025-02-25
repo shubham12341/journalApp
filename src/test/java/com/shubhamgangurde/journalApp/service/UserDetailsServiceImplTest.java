@@ -2,6 +2,7 @@ package com.shubhamgangurde.journalApp.service;
 
 import com.shubhamgangurde.journalApp.entity.User;
 import com.shubhamgangurde.journalApp.repository.UserRepository;
+import lombok.AllArgsConstructor;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
@@ -10,18 +11,21 @@ import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
 import static org.mockito.Mockito.when;
 
-
+@SpringBootTest
 public class UserDetailsServiceImplTest {
 
-    @InjectMocks
+    @Autowired
     private UserDetailsServiceImpl userDetailsServiceImpl;
 
-    @Mock // for injecting our Mock Repository
+    @MockBean // for injecting our Mock Repository
     private UserRepository userRepository;
 
     @BeforeEach
